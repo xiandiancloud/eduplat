@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  
-  	<a href="" id="demo">Admin Login Test</a>
+ 	 <p>
+ 	 <a href="" id="user_demo">普通用户登录</a>
+ 	 <p>
+  	<a href="" id="admin_demo">管理员登录</a>
+  	
   
     <script src="bootstrap/js/jquery-1.9.1.js"></script>
     <script src="js/common.js"></script>
@@ -31,8 +34,11 @@
 	    	var name = "张三";
 	    	name = encodeURI(name);
 	    	//alert("name --- "+name);
-	    	var url = "http://localhost:8080/eduplat/index.html?ui=0&ur=0&un="+name+"&up=http://localhost:8080/eduplat/images/1.jpg";
-	    	$("#demo").attr("href",url);
+	    	var url = "http://localhost:8080/eduplat/index.html?ui=0&ur=1&un="+name+"&up=http://localhost:8080/eduplat/images/1.jpg";
+	    	$("#user_demo").attr("href",url);
+	    	
+	    	var url1 = "http://localhost:8080/eduplat/index.html?ui=0&ur=0&un="+name+"&up=http://localhost:8080/eduplat/images/1.jpg";
+	    	$("#admin_demo").attr("href",url1);
 		});
     </script>
     

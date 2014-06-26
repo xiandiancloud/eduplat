@@ -19,7 +19,9 @@ function parseUrl(debug)
 	if (a.length < 2)
 	{
 		//location.href = "404.html";
-		array[0] = "admin";
+		array[0] = "user";
+		array[1] = 1;
+		array[2] = "User";
 		return array;
 	}
 	var b = a[1];
