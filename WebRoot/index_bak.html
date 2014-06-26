@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>实训平台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+  
+  	<a href="" id="demo">Admin Login Test</a>
+  
+    <script src="bootstrap/js/jquery-1.9.1.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+	    $(document).ready(function(){
+	    	/* var array = parseUrl();
+	    	var b = array[0];
+	    	var role = array[1];	    	
+	    	if (role == 0)
+	    	{
+	    		location.href = "inout.html?"+b;
+	    	}
+	    	else if (role == 1)
+	    	{
+	    		location.href = "car.html?"+b;
+	    	}
+	    	else
+	    	{
+	    		
+	    	} */
+	    	var name = "张三";
+	    	name = encodeURI(name);
+	    	//alert("name --- "+name);
+	    	var url = "http://localhost:8080/eduplat/index.html?ui=0&ur=0&un="+name+"&up=http://localhost:8080/eduplat/images/1.jpg";
+	    	$("#demo").attr("href",url);
+		});
+    </script>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>课程列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/fineuploader.css" rel="stylesheet">
+  </head>
+  <body>
+<div class="pagewrap">
+<div class="container-fluid">
+<!--     <div class="row top">
+        <div class="span3 top20"><a href="/eduplat"><img src="images/logo.png"/></a></div>
+        <div class="span9 topb">
+           <div class="navbar">
+           	navbar-inner
+	           <div class="">
+		           	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </a>
+				      <div class="nav-collapse collapse">
+				        <ul class="nav">
+					      <li class="current"><a href="#">在线开课</a></li>
+					    </ul>
+					    <ul class="nav pull-right">
+					      <li><a href="#"><img src="images/user.png"/></a></li>
+					      <li><a href="#">马飞燕</a></li>
+					    </ul>
+				      </div>
+			  </div>
+			</div>
+        </div>
+    </div> -->
+         <div class="row-fluid top">
+    	<div class="span12 headimg">
+        <div class="left top20 left20"><a href="" id="logo"><img src="images/logo.png" class="logoimg"/></a></div>
+        <div class="right top20">
+           <div class="navbar">
+           	    <div class="">
+		           	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </a>
+				      <div class="nav-collapse collapse">
+					    <ul class="nav pull-right">
+					      <li class="dhlhide" id="set"><a href="setting.html" id="sethref">设置</a></li>
+					      <li><a><img src="" id="userimg"/></a></li>
+					      <li><a id="username"></a></li>
+					    </ul>
+				      </div>
+			  </div>
+			</div>
+        </div>
+   		</div>
+    </div>  
+<!--     <div class="row">
+    <div class="span12 split"></div>
+    </div> -->
+    <div class="row-fluid">
+    	<div class="span12 h20"></div>
+    </div>
+    <div class="row-fluid">
+    	<div class="span12" id="place"></div>
+    </div>
+	<div class="row-fluid">
+	    <!-- list -->
+	    <div class="span8">
+	    	<div class="row-fluid">	
+	    		<div class="span12 h20"><hr/></div>	    		
+	    	</div>
+	    	<div class="row-fluid">	
+		    	<div id="casetop"></div>
+	    	</div>
+	    	<div class="row-fluid">	
+	    		<div class="span12 h40"><div class="right"><button class="btn btn-warning" id="addbutton"><i class="icon-plus"></i>增加</button></div></div>   		
+	    	</div>
+	    	<div class="row-fluid">	
+		    	<div id="caselist"></div>
+	    	</div>
+	    </div>
+	    <!-- other -->
+	    <div class="span4">
+	    	<div class="row-fluid">	
+		    	<div class="span12 h20"><hr/></div>
+	    	</div>
+	    	<div class="row-fluid">	
+		    	<div class="span12" id="place2"></div>
+	    	</div>
+	    	<div class="row-fluid">	
+		    	<div id="caseOther"></div>
+	    	</div>
+	    </div>
+    </div>
+<!-- 	
+    <div class="row">
+	    <div class="span12 h20"></div>
+	    <div class="span12 split"></div>
+	    <div class="span12 h5"></div>
+        <div class="span12 footer">
+          <h4>无锡旅游商贸高等职业技术学校 2014</h4>
+        </div>  
+    </div> -->
+</div>
+</div>
+
+    <div class="footer">
+		<div class="footerCon">
+			<div class="copyright">
+				<p>版权所有：无锡旅游商贸高等职业技术学校   COPYRIGHT © 2010 ALL RIGHTS RESERVED </p>
+				<p>地址：无锡市广石路999号 <span>电话：0510-83116678</span>    <span> 苏ICP备:09007163</span>技术支持：南京第五十五所技术开发有限公司</p>
+			</div>
+			<div class="logobottom">
+				<img src="images/logobottom.gif"/>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+		<div id="syModal" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3 id="sytitle"></h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" action="" class=" form-horizontal">
+        	<input type="hidden" id="syid">
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="syname"><a class="rcol">*</a>名　称：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="syname">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="syimg">图　标：</label>
+		        </div>
+		        <div class="controls">
+		        	<!-- <input type="text" id="syimg"> -->
+		        	<div class="row-fluid">
+				 		<input type="text" class="left" id="syimg" disabled="disabled">
+						<div class="upload-button right" id="bootstrapped-fine-uploader"></div>
+					</div>
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="syurl">WEB　URL　地址：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="syurl">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="sydesktopurl">Windows　桌面应用ClassId：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="sydesktopurl">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="sydesc">介　绍：</label>
+		        </div>
+		        <div class="controls">
+		        	<textarea rows="3" id="sydesc"></textarea>
+		        </div>
+		    </div>
+		</form>
+    </div>
+    <div class="modal-footer">
+    	<button class="btn btn-info" id="syadd">增加</button>
+    	<button class="btn btn-info hide" id="syupdate">修改</button>
+        <button class="btn btn-info" data-dismiss="modal">关闭</button>
+    </div>
+</div>
+
+<div id="tipModal" class="modal hide fade">
+    <div class="modal-header">
+        <h3>提示</h3>
+    </div>
+    <div class="modal-body">
+        <p id="tooptip"></p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" data-dismiss="modal">关闭</button>
+    </div>
+</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bootstrap/js/jquery-1.9.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/fineuploader.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    	var isadmin = false; 
+	    $(document).ready(function(){
+	    	
+	    	var array = parseUrl();	    	
+	    	var b = array[0];
+	    	
+	    	if ("admin" == b)
+	    	{	    		    	
+	    		$("#logo").attr("href","/eduplat/");
+		    	$("#username").html("管理员");	
+		    	$("#userimg").attr("src","images/user.png");
+		    	isadmin = true;	
+	    	}
+	    	else
+	    	{		    	
+	    		var role = array[1];
+	    		//管理员
+		    	if (role == 0)
+	    		{
+		    		$("#set").removeClass("dhlhide");
+		    		isadmin = true;
+	    		}
+		    	else
+	    		{
+		    		$("#set").addClass("dhlhide");	 
+		    		$("#addbutton").hide();
+		    		isadmin = false;
+	    		}
+	    		$("#logo").attr("href","/eduplat/index.html?"+b);		    	
+		    	var username = array[2];
+		    	$("#username").html(username);
+		    	$("#userimg").attr("src",array[3]);		    	
+	    	}
+	    	
+	    	initCase();
+	    	initList();
+	    	initOtherCase();
+	    	
+			$("#addbutton").click(function(){
+				showsydialog();
+			});
+			$("#syadd").click(function(){
+				realaddsy();
+			});
+			$("#syupdate").click(function(){
+				updatesy();
+			});
+			createUploader('bootstrapped-fine-uploader','syimg');
+		});
+	    function showsydialog()
+	    {
+			document.getElementById("syname").value = '';
+			document.getElementById("syimg").value = '';
+			document.getElementById("syurl").value = '';
+			document.getElementById("sydesktopurl").value = '';
+			document.getElementById("sydesc").value = '';
+			$("#sytitle").html("增加实验");
+			$("#syadd").show();
+			$("#syupdate").hide();
+			$('#syModal').modal('show');
+	    }
+	    function realaddsy()
+	    {
+	    	var name = $("#syname").val();
+	    	var imgPath = $("#syimg").val();
+	    	var casetype = getCId();//$("#sytype").val();
+	    	var url = $("#syurl").val();
+	    	var desktopurl = $("#sydesktopurl").val();
+	    	if (!isNull(url) && !isNull(desktopurl))
+			{					
+				//alert("是WEB URL还是桌面CalssId，请选填一个");
+				$("#tooptip").html("是WEB URL还是桌面CalssId，请选填一个");
+	    		$("#tipModal").modal();
+				return ;
+			}
+	    	if (!isNull(url) && !isWebUrl(url))
+	    	{
+				$("#tooptip").html("WEB URL格式不合法，请填写http://或者https://为开头的字符串");
+			    $("#tipModal").modal();
+				return ;
+	    	}
+	    	if (!isNull(desktopurl))
+    		{
+	    		url = desktopurl;
+    		}
+	    	var describe = $("#sydesc").val();
+	    	if (isNull(name))	
+			{					
+				//alert("名称不能为空");
+				$("#tooptip").html("名称不能为空");
+	    		$("#tipModal").modal();
+				return ;
+			}		
+	    	
+	    	var data = {name:name,imgPath:imgPath,casetype:casetype,url:url,describe:describe};
+	    	$.ajax({
+				url:"addcasecontent.action",
+				type:"post",
+				data:data,
+				success:function(s){
+					
+					if (s == "sucess")
+					{						
+						initList();
+						$('#syModal').modal('hide');
+						//alert("增加成功");
+						$("#tooptip").html("增加成功");
+			    		$("#tipModal").modal();
+					}
+					else
+					{
+						//alert(s);
+						$("#tooptip").html(s);
+			    		$("#tipModal").modal();
+					}
+				}
+			});
+	    }
+	    function updatesy()
+	    {
+	    	var id = $("#syid").val();
+	    	var name = $("#syname").val();
+	    	var imgPath = $("#syimg").val();
+	    	var casetype = getCId();//$("#sytype").val();
+	    	var url = $("#syurl").val();
+	    	var desktopurl = $("#sydesktopurl").val();
+	    	if (!isNull(url) && !isNull(desktopurl))
+			{					
+				//alert("是WEB URL还是桌面CalssId，请选填一个");
+				$("#tooptip").html("是WEB URL还是桌面CalssId，请选填一个");
+	    		$("#tipModal").modal();
+				return ;
+			}
+	    	if (!isNull(url) && !isWebUrl(url))
+	    	{
+				$("#tooptip").html("WEB URL格式不合法，请填写http://或者https://为开头的字符串");
+			    $("#tipModal").modal();
+				return ;
+	    	}
+	    	if (!isNull(desktopurl))
+    		{
+	    		url = desktopurl;
+    		}
+	    	var describe = $("#sydesc").val();
+	    	if (isNull(name))	
+			{					
+				//alert("名称不能为空");
+				$("#tooptip").html("名称不能为空");
+	    		$("#tipModal").modal();
+				return ;
+			}		
+	    	
+	    	var data = {id:id,name:name,imgPath:imgPath,casetype:casetype,url:url,describe:describe};
+	    	$.ajax({
+				url:"updatecasecontent.action",
+				type:"post",
+				data:data,
+				success:function(s){
+					
+					if (s == "sucess")
+					{						
+						initList();
+						$('#syModal').modal('hide');
+						//alert("更新成功");
+						$("#tooptip").html("更新成功");
+			    		$("#tipModal").modal();
+					}
+					else
+					{
+						//alert(s);
+						$("#tooptip").html(s);
+			    		$("#tipModal").modal();
+					}
+				}
+			});
+	    }
+	    function getCId()
+	    {
+	    	var lh = location.href;
+	    	var strs = lh.split('&');	    	
+	    	if (strs.length == 2)
+    		{
+	    		
+	    		var ids = strs[0];
+		    	var idss = ids.split('=');
+		    	var id = idss[1];
+		    	return id;
+    		}
+	    	else if (strs.length == 6)
+    		{
+	    		var ids = strs[4];
+		    	var idss = ids.split('=');
+		    	var id = idss[1];		    	
+		    	return id;
+    		}
+	    }
+	    function getPId()
+	    {
+	    	var lh = location.href;
+	    	var strs = lh.split('&');
+	    	/*var ids = strs[1];
+	    	var idss = ids.split('=');
+	    	var id = idss[1];
+	    	return id;*/
+	    	if (strs.length == 2)
+    		{
+	    		
+	    		var ids = strs[1];
+		    	var idss = ids.split('=');
+		    	var id = idss[1];
+		    	return id;
+    		}
+	    	else if (strs.length == 6)
+    		{
+	    		var ids = strs[5];
+		    	var idss = ids.split('=');
+		    	var id = idss[1];
+		    	return id;
+    		}
+	    }
+	    function initCase()
+	    {	    	
+	    	var id = getCId();
+	    	$.ajax({
+				url:"getcase.action?id="+id,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						var tmp = '<div class="row-fluid"><div class="span12"><h4>'+a.name+'</h4></div></div>'+
+						'<div class="row-fluid">'+
+			    		'<div class="span6"><a class="thumbnail"><img src="'+a.imgPath+'"></a></div>'+
+			    		'<div class="span6">'+a.content+'</div>'+
+			    		'</div>';
+			    		var p= '<h4>'+a.cname+'&nbsp;>>&nbsp;'+a.name+'</h4>';
+			    		var p2= '<h3>'+a.cname+'</h3>';
+			    		$("#place").html(p);
+			    		$("#place2").html(p2);
+						$("#casetop").html(tmp);
+					}
+				}
+				});
+	    }
+	    function initOtherCase()
+	    {	    	
+	    	var id = getCId();
+	    	var pid = getPId();
+	    	$.ajax({
+				url:"other.action?id="+id+"&pid="+pid,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						var tmp = '';
+						var array = parseUrl();
+						var b = array[0];
+						var urlt = '';
+						if ("admin" != b)
+						{
+							urlt = b+"&";
+						}
+						for(var i=0,l=a.length;i<l;i++){
+			    			tmp += '<div class="row-fluid"><div class="span12 h5"></div></div>'+
+			    				'<div class="row-fluid"><div class="span12"><a href="list.html?'+urlt+'index='+a[i].id+'&pid='+pid+'" class="thumbnail"><img src="'+a[i].imgPath+'"></a></div></div>'+
+			    				'<div class="row-fluid"><div class="span12"><a href="list.html?'+urlt+'index='+a[i].id+'&pid='+pid+'" target="_blank">'+a[i].name+'</a></div></div>'+
+			    				'<div class="row-fluid"><div class="span12"><h5>设计：'+a[i].design+'</h5></div></div>'+
+							    '<div class="row-fluid"><div class="span12"><h5>类别：'+a[i].caseCategory+'</h5></div></div>'+	
+				    			'<hr/>';
+						} 						
+						$("#caseOther").html(tmp);
+					}
+				}
+				});
+	    }
+	    function initList()
+	    {
+	    	var id = getCId();
+	    	$.ajax({
+				url:"casecontent.action?cId="+id,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						var tmp = '<table class="table"><tr><th><div align="right">课程列表 · '+a.length+'课时<div></th></tr>';						
+						for(var i=0,l=a.length;i<l;i++){
+			    			var index = i+1;
+			    			//tmp += '<div class="span8 card"><span class="livcenter"><a href="'+a[i].url+'" target="_blank">'+index+'&nbsp;&nbsp;'+a[i].name+'</a></span><span class="right"><a href="#"  class="thumbnail noborder"><img class="imgh" src="'+a[i].imgPath+'"></a></span></div>';
+			    			var tmp0 = '';
+			    			if (isadmin)
+			    			{
+			    				tmp0 += '<a href="javascript:updateCasecontent('+a[i].id+')" class="icon-pencil dhltop3"></a>&nbsp;&nbsp;<a href="javascript:delCasecontent('+a[i].id+')" class="icon-trash dhltop3"></a>&nbsp;&nbsp;';
+			    			}
+			    			tmp += '<tr><td><span class="livcenter"><a href="'+a[i].url+'" target="_blank">'+index+'&nbsp;&nbsp;'+a[i].name+'&nbsp;&nbsp;&nbsp;&nbsp;'+a[i].content+'</a><span class="right">'+tmp0+'<a class="noborder"><img class="imgh" src="'+a[i].imgPath+'"></a></span></td></tr>';
+						} 
+						tmp += '</table>';						
+						$("#caselist").html(tmp);
+					}
+				}
+				});
+	    }
+	    function updateCasecontent(id)
+	    {
+	    	$("#syid").attr("value",id);
+	    	$.ajax({
+				url:"getcasecontentbyid.action?id="+id,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						document.getElementById("syname").value = a.name;
+						document.getElementById("sydesc").value = a.content;
+						document.getElementById("syimg").value = a.imgPath;
+						var uu = a.url;
+						if (isWebUrl(uu))
+						{
+							document.getElementById("syurl").value = uu;	
+							document.getElementById("sydesktopurl").value = '';
+						}
+						else
+						{
+							document.getElementById("syurl").value = '';	
+							document.getElementById("sydesktopurl").value = uu;
+						}						
+						$("#syadd").hide();
+						$("#syupdate").show();
+						$("#sytitle").html("更新实验");
+						$('#syModal').modal('show');
+					}
+				}
+			});
+	    }	 
+	    function delCasecontent(id)
+	    {
+	    	$.ajax({
+				url:"delcasecontent.action?id="+id,
+				type:"post",
+				success:function(s){
+					//var a=eval("("+s+")");
+					initList();
+				}
+			});
+	    }	 
+    </script>
+  </body>
+</html>
+
+

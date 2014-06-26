@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>实训平台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/fineuploader.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="pagewrap">
+<div class="container-fluid">
+<!--     <div class="row top">
+        <div class="span3 top20"><a href="/eduplat"><img src="images/logo.png"/></a></div>
+        <div class="span9 topb">
+           <div class="navbar">
+	           <div class="">
+		           	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </a>
+				      <div class="nav-collapse collapse">
+				        <ul class="nav">
+					      <li class="current"><a href="/eduplat">在线开课</a></li>
+					    </ul>
+					    <ul class="nav pull-right">
+					      <li><a href="#"><img src="images/user.png"/></a></li>
+					      <li><a href="#">马飞燕</a></li>
+					    </ul>
+				      </div>
+			  </div>
+			</div>
+        </div>
+    </div> -->
+     <div class="row-fluid top">
+    	<div class="span12 headimg">
+        <div class="left top20 left20"><a href="" id="logo"><img src="images/logo.png" class="logoimg"/></a></div>
+        <div class="right top20">
+           <div class="navbar">
+           	    <div class="">
+		           	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </a>
+				      <div class="nav-collapse collapse">
+					    <ul class="nav pull-right">
+					      <li class="dhlhide" id="set"><a href="setting.html" id="sethref">设置</a></li>
+					      <li><a><img src="" id="userimg"/></a></li>
+					      <li><a id="username"></a></li>
+					    </ul>
+				      </div>
+			  </div>
+			</div>
+        </div>
+   		</div>
+    </div>  
+<!--     <div class="row">
+    <div class="span12 split"></div>
+    </div> -->
+    <div class="row-fluid textcenter">
+	 <div class="span12 h20"></div>
+        <div class="span12 textcolor"> <h1>推荐课程</h1></div>
+	 <div class="span12 h20"></div>
+        <div class="span12"> 虚拟试验实训、网络教学平台、教学资源库在线学习，互联互动的平台</div>
+	 <div class="span12 h20"></div>
+    </div>
+    <!-- 推荐课程 -->
+     <div id="recommend">	
+     </div>
+	<div class="row-fluid">
+		<div class="span12 h40 selectbc"></div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12 selectbc">
+			<div class="row-fluid">
+			<div class="span2"></div>
+			<div class="span3">
+				<select id="selectcase">
+			       <option value="0">实训专业</option>
+				</select>		
+			</div>
+			<div class="span2"><button id="addbutton" class="btn btn-warning"><i class="icon-plus"></i>增加</button></div>
+			<div class="span3">
+				<select id="selectcasec">
+				<option value="0">实训类别</option>
+				</select>	
+			</div>
+			<div class="span2"></div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12 h20 selectbc"></div>
+	</div>
+	
+	<div id="category"></div>
+<!--       <div class="row">
+	    <div class="span12 h20"></div>
+	    <div class="span12 split"></div>
+	    <div class="span12 h5"></div>
+        <div class="span12 footer">
+          <h4>无锡旅游商贸高等职业技术学校 2014</h4>
+        </div>  
+      </div> -->
+</div>
+</div>
+    <div class="footer">    
+		<div class="footerCon">
+			<div class="copyright">
+				<p>版权所有：无锡旅游商贸高等职业技术学校   COPYRIGHT © 2010 ALL RIGHTS RESERVED </p>
+				<p>地址：无锡市广石路999号 <span>电话：0510-83116678</span>    <span> 苏ICP备:09007163</span>技术支持：南京第五十五所技术开发有限公司</p>
+			</div>
+			<div class="logobottom">
+				<img src="images/logobottom.gif"/>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+    
+	<div id="myModal" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3 id="zytitle"></h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" action="" class=" form-horizontal">
+        	<input type="hidden" id="zyid">
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="zyname"><a class="rcol">*</a>名　称：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="zyname">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="zydesc">介　绍：</label>
+		        </div>
+		        <div class="controls">
+		        	<textarea rows="3" id="zydesc"></textarea>
+		        </div>
+		    </div>
+		</form>
+    </div>
+    <div class="modal-footer">
+    	<button class="btn btn-info" id="zyadd">增加</button>
+    	<button class="btn btn-info hide" id="zyupdate">修改</button>
+        <button class="btn btn-info" data-dismiss="modal">关闭</button>
+    </div>
+</div>
+
+	<div id="kcModal" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3 id="kctitle"></h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" action="" class="form-horizontal">
+        	<input type="hidden" id="kcid">
+        	<input type="hidden" id="caseid">
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kcname"><a class="rcol">*</a>名　称：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="kcname">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kcimg">图　标：</label>
+		        </div>
+		        <div class="controls">
+		        	<!-- <input type="text" id="kcimg"> -->
+		        	<div class="row-fluid">
+			        	<input type="text" class="left" id="kcimg" disabled="disabled">
+			        	<div class="upload-button right" id="bootstrapped-fine-uploader"></div>
+					</div>
+		        </div>
+		    </div>
+		   <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kcdesign">设　计　人：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="kcdesign">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kctype">类　别：</label>
+		        </div>
+		        <div class="controls">
+		        	<select id="kctype">
+					</select>
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kcurl">WEB　URL　地址：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="kcurl">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kcdesktopurl">Windows　桌面应用ClassId：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="text" id="kcdesktopurl">
+		        </div>
+		    </div>
+		    <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="kcdesc">介　绍：</label>
+		        </div>
+		        <div class="controls">
+		        	<textarea rows="3" id="kcdesc"></textarea>
+		        </div>
+		    </div>
+		   <div class="control-group">
+		    	<div class="control-label">
+		        	<label for="recommendcheck">推　荐：</label>
+		        </div>
+		        <div class="controls">
+		        	<input type="checkbox" id="recommendcheck"/>
+		        </div>
+		    </div>
+		</form>
+    </div>
+    <div class="modal-footer">
+    	<button class="btn btn-info" id="kcadd">增加</button>
+    	<button class="btn btn-info hide" id="kcupdate">修改</button>
+        <button class="btn btn-info" data-dismiss="modal">关闭</button>
+    </div>
+</div>
+
+<div id="tipModal" class="modal hide fade">
+    <div class="modal-header">
+        <h3>提示</h3>
+    </div>
+    <div class="modal-body">
+        <p id="tooptip"></p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info" data-dismiss="modal">关闭</button>
+    </div>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bootstrap/js/jquery-1.9.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/fineuploader.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    	var isadmin = false;
+	    $(document).ready(function(){
+	    	
+	    	var array = parseUrl();	    	
+	    	var b = array[0];
+	    	if ("admin" == b)
+	    	{	    		    	
+	    		$("#logo").attr("href","/eduplat/");
+		    	$("#username").html("管理员");	
+		    	$("#userimg").attr("src","images/user.png");
+		    	
+		    	$("#set").removeClass("dhlhide");	   
+		    	$("#sethref").attr("href","/eduplat/setting.html");	
+		    	isadmin = true;
+	    	}
+	    	else
+	    	{		    	
+	    		var role = array[1];
+	    		//管理员
+		    	if (role == 0)
+	    		{
+		    		$("#set").removeClass("dhlhide");
+		    		isadmin = true;
+	    		}
+		    	else
+	    		{
+		    		$("#set").addClass("dhlhide");	 
+		    		$("#addbutton").hide();
+		    		isadmin = false;
+	    		}
+		    	$("#sethref").attr("href","/eduplat/setting.html?"+b);	
+	    		$("#logo").attr("href","/eduplat/index.html?"+b);		    	
+		    	var username = array[2];
+		    	$("#username").html(username);
+		    	$("#userimg").attr("src",array[3]);		    	
+	    	}
+	    	
+	    	initRecommend();
+	    	initCategory(0,0);
+	    	initSelect();
+	    	$("#selectcase").change(function()
+   			{
+		       var casev = $("#selectcase").val();
+		       var casec = $("#selectcasec").val();
+		       initCategory(casev,casec);
+		       
+   			});
+	    	$("#selectcasec").change(function()
+   			{
+ 		       var casev = $("#selectcase").val();
+ 		       var casec = $("#selectcasec").val();
+ 		       initCategory(casev,casec);
+   			});
+			$("#addbutton").click(function(){
+				addzy();
+			});
+			$("#zyadd").click(function(){
+				realaddzy();
+			});
+			$("#zyupdate").click(function(){
+				updatezy();
+			});
+			$("#kcadd").click(function(){
+				realaddkc();
+			});
+			$("#kcupdate").click(function(){
+				updatekc();
+			});
+			createUploader('bootstrapped-fine-uploader','kcimg');
+		});
+	    function addzy()
+	    {
+			document.getElementById("zyname").value = '';
+			document.getElementById("zydesc").value = '';
+			$("#zytitle").html("增加专业");
+			$("#zyadd").show();
+			$("#zyupdate").hide();
+			$('#myModal').modal('show');
+	    }
+	    function realaddzy()
+	    {
+	    	var name = $("#zyname").val();
+	    	var describe = $("#zydesc").val();
+	    	if (isNull(name))	
+			{		
+	    		$("#tooptip").html("名称不能为空");
+	    		$("#tipModal").modal();
+				//alert("名称不能为空");
+				return ;
+			}	    	
+	    	var data = {name:name,describe:describe};
+	    	$.ajax({
+				url:"addcategory.action",
+				type:"post",
+				data:data,
+				success:function(s){
+					
+					if (s == "sucess")
+					{			
+						initRecommend();
+						initCategory(0,0);
+						$('#myModal').modal('hide');
+						//alert("增加成功");
+						$("#tooptip").html("增加成功");
+			    		$("#tipModal").modal();
+					}
+					else
+					{
+						//alert(s);
+						$("#tooptip").html(s);
+			    		$("#tipModal").modal();
+					}
+				}
+			});
+	    }
+	    function realaddkc()
+	    {	    	
+	    	var name = $("#kcname").val();
+	    	var imgPath = $("#kcimg").val();
+	    	var design = $("#kcdesign").val();
+	    	var caseCategory = $("#kctype").val();
+	    	var category = $("#kcid").val();
+	    	var url = $("#kcurl").val();
+	    	var desktopurl = $("#kcdesktopurl").val();
+	    	if (!isNull(url) && !isNull(desktopurl))
+			{					
+				//alert("是WEB URL还是桌面CalssId，请选填一个");
+				$("#tooptip").html("是WEB URL还是桌面CalssId，请选填一个");
+			    $("#tipModal").modal();
+				return ;
+			}	    	
+	    	if (!isNull(url) && !isWebUrl(url))
+	    	{
+				$("#tooptip").html("WEB URL格式不合法，请填写http://或者https://为开头的字符串");
+			    $("#tipModal").modal();
+				return ;
+	    	}
+	    	if (!isNull(desktopurl))
+    		{
+	    		url = desktopurl;
+    		}
+	    	var describe = $("#kcdesc").val();
+	    	var recommends = document.getElementById("recommendcheck").checked;	    	
+	    	var recommend = recommends ? 1 : 0;
+	    	if (isNull(name))	
+			{					
+				//alert("名称不能为空");
+				$("#tooptip").html("名称不能为空");
+			    $("#tipModal").modal();
+				return ;
+			}		
+	    	
+	    	var data = {name:name,imgPath:imgPath,design:design,caseCategory:caseCategory,category:category,url:url,describe:describe,recommend:recommend};
+	    	$.ajax({
+				url:"addcase.action",
+				type:"post",
+				data:data,
+				success:function(s){
+					
+					if (s == "sucess")
+					{		
+						initRecommend();
+						initCategory(0,0);
+						$('#kcModal').modal('hide');
+						//alert("增加成功");
+						$("#tooptip").html("增加成功");
+					    $("#tipModal").modal();
+					}
+					else
+					{
+						//alert(s);
+						$("#tooptip").html(s);
+					    $("#tipModal").modal();
+					}
+				}
+			});
+	    }
+	    function updatezy()
+	    {
+	    	var id = $("#zyid").val();
+	    	var name = $("#zyname").val();
+	    	var describe = $("#zydesc").val();	    	
+	    	if (isNull(name))	
+			{					
+				//alert("名称不能为空");
+				$("#tooptip").html("名称不能为空");
+			    $("#tipModal").modal();
+				return ;
+			}		
+	    	var data = {id:id,name:name,describe:describe};
+	    	$.ajax({
+				url:"updatecategory.action",
+				type:"post",
+				data:data,
+				success:function(s){
+					
+					if (s == "sucess")
+					{		
+						initRecommend();
+						initCategory(0,0);
+						$('#myModal').modal('hide');
+						//alert("更新成功");
+						$("#tooptip").html("更新成功");
+					    $("#tipModal").modal();
+					}
+					else
+					{
+						$("#tooptip").html(s);
+					    $("#tipModal").modal();
+					}
+				}
+			});
+	    }
+	    function updatekc()
+	    {
+	    	var id = $("#caseid").val();
+	    	var name = $("#kcname").val();
+	    	var imgPath = $("#kcimg").val();
+	    	var design = $("#kcdesign").val();	 
+	    	var caseCategory = $("#kctype").val();
+	    	var category = $("#kcid").val();
+	    	var url = $("#kcurl").val();
+	    	var desktopurl = $("#kcdesktopurl").val();
+	    	if (!isNull(url) && !isNull(desktopurl))
+			{					
+				//alert("是WEB URL还是桌面CalssId，请选填一个");
+				$("#tooptip").html("是WEB URL还是桌面CalssId，请选填一个");
+				$("#tipModal").modal();
+				return ;
+			}
+	    	if (!isNull(url) && !isWebUrl(url))
+	    	{
+				$("#tooptip").html("WEB URL格式不合法，请填写http://或者https://为开头的字符串");
+			    $("#tipModal").modal();
+				return ;
+	    	}
+	    	if (!isNull(desktopurl))
+    		{
+	    		url = desktopurl;
+    		}
+	    	var describe = $("#kcdesc").val();	    	
+	    	var recommends = document.getElementById("recommendcheck").checked;	    	
+	    	var recommend = recommends ? 1 : 0;
+	    	if (isNull(name))	
+			{					
+				//alert("名称不能为空");
+				$("#tooptip").html("名称不能为空");
+			    $("#tipModal").modal();
+				return ;
+			}		
+	    	
+	    	var data = {id:id,name:name,imgPath:imgPath,design:design,caseCategory:caseCategory,category:category,url:url,describe:describe,recommend:recommend};
+	    	$.ajax({
+				url:"updatecase.action",
+				type:"post",
+				data:data,
+				success:function(s){
+					if (s == "sucess")
+					{			
+						initRecommend();
+						initCategory(0,0);
+						$('#kcModal').modal('hide');
+						//alert("更新成功");
+						$("#tooptip").html("更新成功");
+					    $("#tipModal").modal();
+					}
+					else
+					{
+						$("#tooptip").html(s);
+					    $("#tipModal").modal();
+					}
+				}
+			});
+	    }
+	    function initSelect()
+	    {
+	    	$.ajax({
+				url:"casecategory.action",
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						var select = '<option value="0">实训类别</option>';
+						var select2 = '';
+						for(var i=0;i<a.length;i++){
+			    			select += '<option value="'+a[i].id+'">'+a[i].name+'</option>';
+			    			select2 += '<option value="'+a[i].id+'">'+a[i].name+'</option>';
+							}							
+						$("#selectcasec").html(select);
+						$("#kctype").html(select2);
+					}
+				}
+				});
+	    }
+	    function initRecommend()
+	    {
+	    	$.ajax({
+				url:"recommend.action",
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						var tmp = '';
+						var array = parseUrl();
+						var b = array[0];
+						var urlt = '';
+						if ("admin" != b)
+						{
+							urlt = b+"&";
+						}
+						
+						for(var i=0;i<a.length;i++){
+							if (i == 0)
+    						{
+	    						tmp += '<div class="row-fluid">';
+    						}
+							/* var sp = '';
+							if ((i+1)%3 == 0)
+							{
+								sp = '<div class="span12 h20"></div>';
+							} */
+							tmp += '<div class="span4">'+
+				    				'<div class="thumbnail noborder">'+
+				    					'<a href="list.html?'+urlt+'index='+a[i].id+'&pid='+a[i].pid+'"  target="_blank" class="thumbnail"><img src="'+a[i].imgPath+'"></a>'+
+						    			'<h5>'+a[i].casecount+'课时 — '+a[i].name+'</h5>'+
+						    			'<p>'+a[i].content+'</p>'+						    			
+									'</div>'+
+			    				'</div>';			    				
+							
+							if ((i+1)%3 == 0)
+							{
+								tmp += '</div>';
+								var sp = '<div class="row-fluid"><div class="span12 h20"></div></div>';
+								tmp += sp;
+								if (i < a.length)
+								tmp += '<div class="row-fluid">';
+							} 
+							
+						} 
+						tmp += '</div>';
+						$("#recommend").html(tmp);
+					}
+				}
+				});
+	    }
+	    function initCategory(id,ccid)
+	    {
+	    	$.ajax({
+				url:"categorybyid.action?id="+id+"&ccid="+ccid,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						var tmp = '';
+						var select = '<option value="0">实训专业</option>';
+						var array = parseUrl();
+						var b = array[0];
+						var urlt = '';
+						if ("admin" != b)
+						{
+							urlt = b+"&";
+						}
+						for(var i=0;i<a.length;i++){
+
+							var imgtmp = '<div class="row-fluid"><div class="span12 splitimg"></div></div>';
+			    			if (i == a.length - 1)
+		    				{
+		    					imgtmp = '';
+		    				}	
+			    			
+			    			var cases = a[i].cases;			    			
+			    			var casetmp = '';
+			    			if (cases.length > 0)
+		    				{
+			    				for(var j=0;j<cases.length;j++)
+		    					{
+			    					if (j == 0)
+		    						{
+			    						casetmp += '<div class="row-fluid">';
+		    						}
+			    					/*var sp = '';
+									if ((j+1)%3 == 0)
+									{										
+										sp = '<div class="row-fluid"><div class="span12 h20 split"></div></div>';
+									}*/
+									var tmp0 = '<p><h5>类别：'+cases[j].caseCategory+'</h5></p>';
+					    			if (isadmin)
+				    				{
+					    				tmp0 = '<p><h5><div class="row-fluid"><div class="left">类别：'+cases[j].caseCategory+'</div><div class="right"><a href="javascript:updateCase('+a[i].id+','+cases[j].id+')" class="icon-pencil"></a>&nbsp;&nbsp;<a href="javascript:delCase('+cases[j].id+')" class="icon-trash"></a></div></div></h5></p>';
+				    				}
+			    					casetmp += '<div class="span4">'+
+							    	'<div class="thumbnail noborder">'+
+							    		'<a href="list.html?'+urlt+'index='+cases[j].id+'&pid='+a[i].id+'" target="_blank" class="thumbnail"><img src="'+cases[j].imgPath+'"></a>'+
+								    '<h5>'+cases[j].name+'</h5>'+
+								    '<p><h5>设计：'+cases[j].design+'</h5></p>'+
+								    /* '<p><h5>类别：'+cases[j].caseCategory+'</h5></p>'+	 */
+								    tmp0+							 
+									'</div>'+
+						    		'</div>';
+						    		
+									if ((j+1)%3 == 0)
+									{										
+										casetmp += '</div>';
+										var sp = '<div class="row-fluid"><div class="span12 h20"></div></div>';
+										casetmp += sp;
+										if (j < cases.length)
+										casetmp += '<div class="row-fluid">';
+									}
+									
+		    					}
+		    				}
+			    			select += '<option value="'+a[i].id+'">'+a[i].name+'</option>';
+			    			var tmp1 = '';
+			    			var tmp2 = '<h3>'+a[i].name+'&nbsp;&nbsp;</h3>';
+			    			if (isadmin)
+		    				{
+			    				tmp1 = '<button class="btn btn-warning dhltop2" onclick="javascript:addCase('+a[i].id+')"><i class="icon-plus"></i>增加</button>';
+			    				tmp2 = '<h3>'+a[i].name+'&nbsp;&nbsp;<a href="javascript:updateCategory('+a[i].id+')" class="icon-pencil dhltop2"></a>&nbsp;&nbsp;<a href="javascript:delCategory('+a[i].id+')" class="icon-trash dhltop2"></a></h3>';
+		    				}
+			    			tmp +=  '<div class="row-fluid">'+								    
+						            '<div class="span10">'+
+							    	tmp2+
+							    	'</div>'+
+							    	'<div class="span2">'+
+							    	tmp1+
+						    		'</div>'+
+							    	'</div>'+
+							    	casetmp +
+							    	'<div class="row-fluid">'+
+								    	'<div class="span12"></div>'+
+							    	'</div>'+
+							    	imgtmp;
+								    /*'<div class="row-fluid">'+
+								   		casetmp +								    
+							    		'<div class="span12 h20"></div>'+
+							    		imgtmp +
+									'</div>';*/
+							}						
+						if (id < 1)
+						{
+							$("#selectcase").html(select);
+						}						
+						$("#category").html(tmp);
+					}
+				}
+				});
+	    }
+	    function updateCategory(id)
+	    {
+	    	$("#zyid").attr("value",id);
+	    	$.ajax({
+				url:"getcategorybyid.action?id="+id,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						document.getElementById("zyname").value = a.name;
+						document.getElementById("zydesc").value = a.content;
+						$("#zyadd").hide();
+						$("#zyupdate").show();
+						$("#zytitle").html("更新专业");
+						$('#myModal').modal('show');
+					}
+				}
+			});
+	    }	 
+	    function delCategory(id)
+	    {
+	    	if (confirm("删除专业会将所有课程实验也删除，你确定要删除？"))
+	    	{
+		    	$.ajax({
+					url:"delcategory.action?id="+id,
+					type:"post",
+					success:function(s){
+						//var a=eval("("+s+")");
+						initRecommend();
+						initCategory(0,0);
+					}
+				});
+	    	}
+	    }	 
+	    function addCase(id)
+	    {
+	    	document.getElementById("kcid").value = id;
+	    	document.getElementById("kcname").value = '';
+			document.getElementById("kcdesc").value = '';
+			document.getElementById("kcimg").value = '';
+			document.getElementById("kcdesign").value = '';
+			document.getElementById("kcurl").value = '';
+			document.getElementById("kcdesktopurl").value = '';
+	    	$("#kcadd").show();
+			$("#kcupdate").hide();
+			$("#kctitle").html("增加课程");
+			$('#kcModal').modal('show');
+	    }
+	    function updateCase(id,id2)
+	    {
+	    	$("#kcid").attr("value",id);
+	    	$("#caseid").attr("value",id2);
+	    	$.ajax({
+				url:"getcase.action?id="+id2,
+				type:"post",
+				success:function(s){
+					var a=eval("("+s+")");
+					if (a)
+					{
+						document.getElementById("kcname").value = a.name;
+						document.getElementById("kcdesc").value = a.content;
+						document.getElementById("kcimg").value = a.imgPath;
+						document.getElementById("kcdesign").value = a.design;
+						//document.getElementById("kcurl").value = a.url;
+						//document.getElementById("kcdesktopurl").value = a.url;
+						var uu = a.url;
+						if (isWebUrl(uu))
+						{
+							document.getElementById("kcurl").value = uu;	
+							document.getElementById("kcdesktopurl").value = '';
+						}
+						else
+						{
+							document.getElementById("kcurl").value = '';	
+							document.getElementById("kcdesktopurl").value = uu;
+						}	
+						$("#kcadd").hide();
+						$("#kcupdate").show();
+						$("#kctitle").html("更新课程");
+						$('#kcModal').modal('show');
+					}
+				}
+			});
+	    }	 
+	    function delCase(id)
+	    {
+	    	if (confirm("删除课程会将所有实验也删除，你确定要删除？"))
+    		{
+		    	$.ajax({
+					url:"delcase.action?id="+id,
+					type:"post",
+					success:function(s){
+						//var a=eval("("+s+")");
+						initRecommend();
+						initCategory(0,0);
+					}
+				});
+    		}
+	    }	 
+    </script>
+  </body>
+</html>
+
+
