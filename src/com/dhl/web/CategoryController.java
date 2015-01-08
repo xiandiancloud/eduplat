@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dhl.cons.CommonConstant;
 import com.dhl.domain.Case;
+import com.dhl.domain.CaseCategory;
 import com.dhl.domain.Category;
 import com.dhl.service.CategoryService;
 
@@ -52,9 +53,7 @@ public class CategoryController{
 	@RequestMapping("/updatecategory")
 	public void updatecategory(HttpServletRequest request,HttpServletResponse response,Category entity){
 		try {
-			
 			String str = categoryService.update(entity);
-			
 			PrintWriter out = response.getWriter();			
 			out.write(str);
 		} catch (Exception e) {
@@ -70,9 +69,7 @@ public class CategoryController{
 	@RequestMapping("/delcategory")
 	public void delcategory(HttpServletRequest request,HttpServletResponse response,int id){
 		try {
-			
 			categoryService.remove(id);
-			
 			PrintWriter out = response.getWriter();			
 			out.write(CommonConstant.SUCESS);
 		} catch (Exception e) {
@@ -106,7 +103,17 @@ public class CategoryController{
 			e.printStackTrace();
 		}
 	}
-	
+	@RequestMapping("/selectcategory")
+	public void selectcategory(HttpServletRequest request,HttpServletResponse response){
+		try {
+			List<Category> list = categoryService.getAllList();
+			PrintWriter out = response.getWriter();
+			String str = javatojson(list);
+			out.write(str);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 相同id下的分类课程
 	 * @param request
@@ -192,6 +199,36 @@ public class CategoryController{
 			return str;
 		}
 	}
+	
+	private String javatojson(List<Category> list)
+	{
+		StringBuffer buffer = new StringBuffer();
+		int count = list.size();
+		buffer.append("[");
+		for (int i=0;i<count;i++)
+		{
+			Category p = list.get(i);
+			buffer.append("{");
+			buffer.append("\"id\":");
+			buffer.append("\""+p.getId()+"\"");
+			buffer.append(",\"name\":");
+			buffer.append("\""+p.getName()+"\"");
+			buffer.append("},");
+		}
+		if (count >  0)
+		{
+			String str = buffer.substring(0, buffer.length()-1)+"]";
+			str = str.replaceAll("null", "");
+			return str;
+		}
+		else
+		{
+			String str = buffer.toString()+"]";
+			str = str.replaceAll("null", "");
+			return str;
+		}
+	}
+	
 	
 	private String getCases(List<Case> cases,int ccid)
 	{

@@ -48,7 +48,7 @@
 			<nav>
 				<div class="row-fluid top container-fluid pagewrap">
 					<div class="span12 headimg">
-						<div class="span12" style="background-color:#FFFFFF;height:82px;">
+						<div class="span12" style="background-color:#FFFFFF;height:85px;">
 							<div class="left top20 left20">
 								<a href="" id="logo"><img src="images/logo.png"
 									class="logoimg" /></a>
@@ -65,8 +65,8 @@
 										</a>
 										<div class="nav-collapse collapse">
 											<ul class="nav pull-right">
-											<li style="margin-top:12px;margin-right:-10px;"><span id="greeting">您好！</span></li>
-											<li class="usernamemargin"><a id="username"></a></li>
+											<li style="margin-top:12px;margin-right:-10px;"><span>您好！</span></li>
+											<li><a id="username"></a></li>
 												<li class="dhlhide" id="set" style="margin-left:-10px;"><a href="setting.html"
 													id="sethref"><i class="icon-cog"></i></a></li>
 													
@@ -402,6 +402,7 @@
 						$("#logo").attr("href", "/eduplat/");
 						$("#username").html("管理员");
 						$("#userimg").attr("src", "images/user.png");
+	
 						$("#set").removeClass("dhlhide");
 						$("#sethref").attr("href", "/eduplat/setting.html");
 						isadmin = true;
@@ -432,6 +433,11 @@
 						var casec = $("#selectcasec").val();
 						initCategory(casev, casec);
 					});
+					$("#kcid").change(function() {
+						var casev = $("#selectcase").val();
+						var casec = $("#selectcasec").val();
+						initCategory(casev, casec);
+					});
 					$("#selectcasec").change(function() {
 						var casev = $("#selectcase").val();
 						var casec = $("#selectcasec").val();
@@ -441,7 +447,6 @@
 						addzy();
 					});
 					$("#zyadd").click(function() {
-						location.reload();
 						realaddzy();
 					});
 					$("#zyupdate").click(function() {
@@ -497,7 +502,6 @@
 					});
 				}
 				function realaddkc() {
-					
 					var name = $("#kcname").val();//课程名字
 					var imgPath = $("#kcimg").val();//课程图片
 					var design = $("#kcdesign").val();//课程设计
@@ -765,8 +769,7 @@
 							});
 				}
 				function initCategory(id, ccid) {
-					$
-							.ajax({
+					$.ajax({
 								url : "categorybyid.action?id=" + id + "&ccid="
 										+ ccid,
 								type : "post",
@@ -917,7 +920,6 @@
 					}
 				}
 				function addCase(id) {
-					
 					document.getElementById("kcid").value = id;
 					document.getElementById("kcname").value = '';
 					document.getElementById("kcdesc").value = '';
@@ -925,6 +927,10 @@
 					document.getElementById("kcdesign").value = '';
 					document.getElementById("kcurl").value = '';
 					document.getElementById("kcdesktopurl").value = '';
+					var casev = $("#selectcase").val();
+					var casec = $("#selectcasec").val();
+					initCategory(casev, casec);
+					/* initCategory(0,0); */
 					$("#kcadd").show();
 					$("#kcupdate").hide();
 					$("#kctitle").html("增加课程");

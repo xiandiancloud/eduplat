@@ -16,7 +16,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/fineuploader.css" rel="stylesheet">
   </head>
-  <body data-spy="scroll" data-target="#menu">
+  <body data-spy="scroll" data-target="#menu" style="background-color:#157B48">
 <div class="pagewrap">
 <div class="container-fluid">
      <div class="row-fluid top">
@@ -32,9 +32,14 @@
 				      </a>
 				      <div class="nav-collapse collapse">
 					    <ul class="nav pull-right">
-					      <li><a href="/eduplat/" id="home">首页</a></li>
-					      <li><a><img src="" id="userimg"/></a></li>
-					      <li><a id="username"></a></li>
+					      <li><a href="/eduplat/" id="home" style="font-size: 10pt;
+font-family: Microsoft Yahei,Georgia,serif;margin-top:2px;">首页</a></li>
+					      <li style="margin-top:12px;margin-right:-10px;"><span id="greeting">您好！</span></li>
+											<li class="usernamemargin"><a id="username"></a></li>
+												<!--<li class="dhlhide" id="set" style="margin-left:-10px;"><a href="setting.html"
+													id="sethref"><i class="icon-cog"></i></a></li>
+					       <li><a><img src="" id="userimg"/></a></li>
+					      <li><a id="username"></a></li> -->
 					    </ul>
 				      </div>
 			  </div>
@@ -60,19 +65,18 @@
     	<div class="span12 h20"></div>
     </div>
 	<div class="row-fluid">
-	    <div class="span2" id="menu">
+	    <div class="span2" id="menu" style="margin-left:5px;">
 	    	<ul class="nav nav-pills nav-stacked">
-			    <li class="active"><a href="#tag1">专业定义</a></li>
-			    <li><a href="#tag2">课程定义</a></li>
-			    <li><a href="#tag3">实验定义</a></li>
+			    <li class="active"><a href="profession.html" id="zydef">专业定义</a></li>
+			    <li><a href="course.html" id="kcdef">课程定义</a></li>
+			    <li><a href="experiment.html" id="sydef">实验定义</a></li>
 			</ul>
-
 	    </div>
 	    <div class="span1"></div>
 	    <div class="span8">
 	    
-	    	<div class="row-fluid">
-	    		<div class="span12">
+	    	<div class="row-fluid" style="width:785px;height:375px;margin-left:-60px;">
+	    		<div class="span12" id="special">
    			    	<div class="panel panel-primary">
 					  <div class="panel-heading">
 					    <h3 class="panel-title" id="tag1">专业定义</h3>
@@ -86,103 +90,9 @@
 						        <textarea class="span12" rows="3" id="zydesc"></textarea>
 						    </label>
 						    <div class="row-fluid">
-						    	<div class="span4"></div>
+						    	<div class="span3"></div>
 						    	<div class="span2"><button type="button" class="btn btn-warning" id="zyok">提交</button></div>
 						    	<div class="span2"><button type="button" class="btn btn-warning" id="zycancel">取消</button></div>
-						    	<div class="span4"></div>
-						    </div>
-						</form>
-					  </div>
-					</div>
-	    		</div>
-	    	</div>
-			<div class="row-fluid">
-	    		<div class="span12">
-   			    	<div class="panel panel-primary">
-					  <div class="panel-heading">
-					    <h3 class="panel-title" id="tag2">课程定义</h3>
-					  </div>
-					  <div class="panel-body">
-					    <form class="form-actions">
-						    <label><a class="rcol">*</a>名　称：</br>
-						        <input type="text" class="span12" id="kcname">
-						    </label>
-						    <label>图　标：</br>
-						    	<div class="row-fluid">
-							 		<input type="text" class="span10 left" id="kcimg" disabled="disabled">
-									<div class="upload-button right" id="bootstrapped-fine-uploader"></div>
-						 		</div>
-						    </label>
-						    <label>设　计　人：</br>
-						        <input type="text" class="span12" id="kcdesign">
-						    </label>
-						    <label>类　别：</br>
-						        <select class="span12"  id="selectcasec">
-								</select>
-						    </label>
-						    <label>专　业　类　别：</br>						        
-						        <select class="span12"  id="selectcase">
-								</select>
-						    </label>
-						    <label>WEB　URL　地址：</br>
-						        <input type="text" class="span12" id="weburl">
-						    </label>
-						    <label>Windows　桌面应用ClassId：</br>
-						        <input type="text" class="span12" id="desktopurl">
-						    </label>
-						    <label>介　绍：</br>
-						        <textarea class="span12" rows="3" id="kcdesc"></textarea>
-						    </label>
-						    <label>
-						        <input type="checkbox" id="recommend"/>　<a class="dhltop">推荐</a>
-						    </label>
-						    <div class="row-fluid">
-						    	<div class="span4"></div>
-						    	<div class="span2"><button type="button" class="btn btn-warning" id="kcok">提交</button>    </div>
-						    	<div class="span2"><button type="button" class="btn btn-warning" id="kccancel">取消</button></div>
-						    	<div class="span4"></div>
-						    </div>
-						</form>
-					  </div>
-					</div>
-	    		</div>
-	    	</div>
-	    	
-	    	<div class="row-fluid">
-	    		<div class="span12">
-   			    	<div class="panel panel-primary">
-					  <div class="panel-heading">
-					    <h3 class="panel-title" id="tag3">实验定义</h3>
-					  </div>
-					  <div class="panel-body">
-					    <form class="form-actions">
-						    <label>名　称：</br>
-						        <input type="text" class="span12" id="syname">
-						    </label>
-						    <label>图　标：</br>
-						        <!-- <input type="text" class="span12" id="syimg"> -->
-						        <div class="row-fluid">
-							 		<input type="text" class="span10 left" id="syimg" disabled="disabled">
-									<div class="upload-button right" id="bootstrapped-fine-uploader2"></div>
-						 		</div>
-						    </label>
-						    <label>课　程　类　别：</br>
-						        <select class="span12"  id="sytype">
-								</select>
-						    </label>
-						    <label>WEB　URL　地址：</br>
-						        <input type="text" class="span12" id="syweburl">
-						    </label>
-						    <label>Windows　桌面应用ClassId：</br>
-						        <input type="text" class="span12" id="sydesktopurl">
-						    </label>
-						    <label>介　绍：</br>
-						        <textarea class="span12" rows="3" id="sydesc"></textarea>
-						    </label>
-						    <div class="row-fluid">
-						    	<div class="span4"></div>
-						    	<div class="span2"><button type="button" class="btn btn-warning" id="syok">提交</button>    </div>
-						    	<div class="span2"><button type="button" class="btn btn-warning" id="sycancel">取消</button></div>
 						    	<div class="span4"></div>
 						    </div>
 						</form>
@@ -196,7 +106,7 @@
 </div>
 </div>
 
-    <div class="footer">
+    <!-- <div class="footer">
 		<div class="footerCon">
 			<div class="copyright">
 				<p>版权所有：无锡旅游商贸高等职业技术学校   COPYRIGHT © 2010 ALL RIGHTS RESERVED </p>
@@ -207,7 +117,7 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-	</div>
+	</div> -->
 	
 	<div id="tipModal" class="modal hide fade">
     <div class="modal-header">
@@ -227,26 +137,41 @@
     <script src="js/fineuploader.js"></script>    
     <script src="js/common.js"></script>
     <script>
-	    $(document).ready(function(){
+	    	var isadmin = false;
+				$(document).ready(function() {
+					var array = parseUrl();
+					var b = array[0];
+					if ("admin" == b) {
+						$("#logo").attr("href", "/eduplat/");
+						$("#username").html("管理员");
+						$("#userimg").attr("src", "images/user.png");
+						$("#set").removeClass("dhlhide");
+						$("#zydef").attr("href", "/eduplat/profession.html");
+		    			$("#kcdef").attr("href", "/eduplat/course.html");
+		    			$("#sydef").attr("href", "/eduplat/experiment.html");
+						$("#sethref").attr("href", "/eduplat/setting.html");
+						isadmin = true;
+					} else {
+						var role = array[1];
+						//管理员
+						if (role == 0) {
+							$("#set").removeClass("dhlhide");
+							isadmin = true;
+						} else {
+							$("#set").addClass("dhlhide");
+							$("#addbutton").hide();
+							isadmin = false;
+						}
+						$("#sethref").attr("href", "/eduplat/setting.html?" + b);
+						$("#logo").attr("href", "/eduplat/index.html?" + b);
+						$("#zydef").attr("href", "/eduplat/profession.html?"+b);
+		    			$("#kcdef").attr("href", "/eduplat/course.html?"+b);
+		    			$("#sydef").attr("href", "/eduplat/experiment.html?"+b);	 
+						var username = array[2];
+						$("#username").html(username);
+						$("#userimg").attr("src", array[3]);
+					}
 	    	
-	    	var array = parseUrl();	    	
-	    	var b = array[0];
-	    	
-	    	if ("admin" == b)
-	    	{	    		    	
-	    		$("#logo").attr("href","/eduplat/");
-		    	$("#username").html("管理员");	
-		    	$("#userimg").attr("src","images/user.png");
-		    	
-	    	}
-	    	else
-	    	{		    	
-	    		$("#logo").attr("href","/eduplat/index.html?"+b);	
-	    		$("#home").attr("href","/eduplat/index.html?"+b);
-		    	var username = array[2];
-		    	$("#username").html(username);
-		    	$("#userimg").attr("src",array[3]);		    	
-	    	}
 	    	
 	    	$("#menu li").click(function(){
 	    		$("#menu li").removeClass("active");

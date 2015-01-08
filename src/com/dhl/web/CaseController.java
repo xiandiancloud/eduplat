@@ -54,7 +54,6 @@ public class CaseController{
 		try {
 			
 			String str = caseService.update(id,name, imgPath, design, caseCategory, category, url, describe, recommend);
-			
 			PrintWriter out = response.getWriter();			
 			out.write(str);
 		} catch (Exception e) {

@@ -134,13 +134,15 @@
     width: 1170px;
   }
   .span12 {
-    width: 1170px;
+    width: 1020px;
+    background-color:rgb(26,26,26);
   }
   .span11 {
     width: 1070px;
   }
   .span10 {
     width: 970px;
+    margin-bottom:20px;
   }
   .span9 {
     width: 870px;
@@ -206,6 +208,7 @@
     margin-left: 130px;
   }
   .row-fluid {
+  	position:fixed;
     width: 100%;
     *zoom: 1;
   }
@@ -883,7 +886,7 @@
   }
   .modal {
     position: fixed;
-    top: 20px;
+    top: 30px;
     right: 20px;
     left: 20px;
     width: auto;
